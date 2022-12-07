@@ -24,7 +24,6 @@ public class SimulationVisualizer extends Simulation {
     @Override
     public void tick() {
         System.out.println(Arrays.toString(cells));
-
         super.tick();
     }
 
@@ -39,9 +38,13 @@ public class SimulationVisualizer extends Simulation {
     public void simulate(boolean useEmoji) {
         Scanner sc = new Scanner(System.in);
 
-        while (!sc.nextLine().equals("exit")) {
+        System.out.println("Running simulation...");
+        System.out.println("Press <Enter> to step one tick forward, enter \"exit\" to stop simulating.");
+        System.out.println("Initial world:");
+
+        do {
             this.tick();
-        }
+        } while (!sc.nextLine().equals("exit"));
 
         System.out.println("Exited the simulation loop!");
     }
